@@ -1,0 +1,12 @@
+FROM alpine:3.7
+
+RUN apk add python2 py-pip gcc
+
+WORKDIR /app
+ADD . .
+
+RUN pip2 install -r requirements.txt
+
+ENV TEAM_ID CC_123_456_789
+
+CMD python2 acts_server.py
